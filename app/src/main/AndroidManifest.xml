@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="com.zhufucdev.motion_emulator.PERMISSION.READ"/>
+
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -8,9 +10,12 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true">
 
+        <meta-data android:name="me_plugin" android:value="true"/>
+
         <receiver
             android:name=".ControllerReceiver"
-            android:exported="true" />
+            android:exported="true"
+            android:permission="com.zhufucdev.motion_emulator.PERMISSION.READ" />
 
         <meta-data
             android:name="me_description"

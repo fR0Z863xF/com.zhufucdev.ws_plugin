@@ -1,5 +1,6 @@
 package com.zhufucdev.ws_plugin.hook
 
+import com.highcapable.yukihookapi.hook.log.YLog
 import com.highcapable.yukihookapi.hook.log.loggerI
 import com.highcapable.yukihookapi.hook.param.PackageParam
 import com.zhufucdev.me.stub.Method
@@ -47,9 +48,9 @@ class Scheduler : XposedScheduler() {
             }
 
             if (!warned) {
-                loggerI(
-                    tag = TAG,
-                    msg = "Provider offline. Waiting for data channel to become online"
+                YLog.info(
+                    msg = "Provider offline. Waiting for data channel to become online",
+                    tag = TAG
                 )
                 warned = true
             }
