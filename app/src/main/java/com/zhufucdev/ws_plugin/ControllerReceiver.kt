@@ -1,6 +1,7 @@
 package com.zhufucdev.ws_plugin
 
 import android.content.Context
+import android.preference.PreferenceManager
 import com.highcapable.yukihookapi.hook.factory.prefs
 import com.zhufucdev.me.plugin.MePlugin
 import com.zhufucdev.me.plugin.PluginBroadcastReceiver
@@ -18,6 +19,9 @@ class ControllerReceiver : PluginBroadcastReceiver() {
             putBoolean("me_server_tls", server.useTls)
             putInt("me_server_port", server.port)
             putString("me_method", method.name)
+            val transport = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString("transport", "aidl") ?: "aidl"
+            putString("me_transport", transport)
         }
     }
 }
